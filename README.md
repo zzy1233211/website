@@ -1,47 +1,68 @@
 # AI 前沿 - 全球人工智能资讯聚合平台
 
-🧠 一个现代化的 AI 资讯网站，汇聚全球最新人工智能技术动态、前沿论文和创新工具。
+🧠 一个**真实可用**的现代化 AI 资讯网站，自动聚合全球最新人工智能技术动态。
 
-## ✨ 特性
+## ✨ 核心功能
 
-- 🎨 **现代化暗色主题** - 科技感十足的渐变配色
-- 📰 **最新资讯** - 实时聚合全球 AI 新闻
-- 📄 **论文追踪** - arXiv、NeurIPS 等顶会最新研究
-- 🛠️ **工具推荐** - 精选 AI 开发工具和应用
-- 🔍 **智能搜索** - 快速定位感兴趣的内容
-- 📱 **全端适配** - 完美支持桌面和移动设备
-- 🔄 **自动刷新** - 定期更新最新资讯
+| 模块 | 数据来源 | 更新频率 | 可点击 |
+|------|----------|----------|--------|
+| 📰 **科技资讯** | Hacker News API | 实时 | ✅ |
+| 📄 **热门论文** | arXiv API | 每日 | ✅ |
+| 🧠 **BCI 专栏** | arXiv (BCI 相关) | 每周 | ✅ |
+| 🛠️ **AI 工具** | 精选工具库 | 每周 | ✅ |
+| 💻 **开源项目** | GitHub Trending | 每日 | ✅ |
 
-## 🚀 快速开始
-
-### 本地预览
+## 🚀 本地预览
 
 ```bash
-# 使用 Python 内置服务器
 cd projects/zhangziyue-website
 python -m http.server 8080
-
-# 或使用 Node.js
-npx serve
 ```
 
-然后在浏览器访问 `http://localhost:8080`
+访问：http://localhost:8080
 
-### 部署到 GitHub Pages
+## 📡 数据源说明
 
-1. 提交更改
-```bash
-git add .
-git commit -m "Redesign: AI 资讯网站 - 现代化暗色主题"
-git push origin main
-```
+### 1. 科技资讯 - Hacker News
+- 实时获取 Hacker News 热门科技新闻
+- 自动分类：大模型、AI 芯片、机器人等
+- 点击跳转至原始链接
 
-2. 在 GitHub 仓库设置中启用 GitHub Pages
-   - Settings → Pages
-   - Source: Deploy from branch
-   - Branch: main / root
+### 2. 学术论文 - arXiv API
+- 自动抓取 cs.AI (人工智能) 分类最新论文
+- 支持 BCI 专属查询 (brain-computer interface, EEG 等)
+- 点击跳转至 arXiv 详情页
 
-网站将自动部署到 `https://你的用户名.github.io/仓库名`
+### 3. AI 工具 - 精选库
+- Cursor、Julius AI、Midjourney 等热门工具
+- 分类：开发工具、数据科学、图像生成等
+- 点击直达工具官网
+
+### 4. 开源项目 - GitHub
+- GitHub Trending AI 相关项目
+- 显示 Star 数和编程语言
+- 点击跳转至 GitHub 仓库
+
+### 5. BCI 专栏 - 特色模块
+- 专注脑机接口领域研究
+- 关键词：BCI、EEG、neural decoding 等
+- 为紫钺的 BCI 工作提供最新文献支持
+
+## 🎨 设计特点
+
+- **暗色主题** - 科技感十足的渐变配色
+- **响应式** - 完美适配手机/平板/桌面
+- **真实链接** - 所有卡片均可点击跳转
+- **自动刷新** - 30 分钟自动更新内容
+- **加载状态** - 优雅的数据加载提示
+
+## 🛠️ 技术栈
+
+- 纯 HTML/CSS/JavaScript (无框架依赖)
+- arXiv API (论文数据)
+- Hacker News Firebase API (新闻数据)
+- GitHub API (开源项目)
+- CSS 变量主题系统
 
 ## 📁 项目结构
 
@@ -49,63 +70,65 @@ git push origin main
 zhangziyue-website/
 ├── index.html          # 主页面
 ├── style.css           # 样式文件
-├── script.js           # 交互逻辑
+├── script.js           # 数据获取 + 渲染逻辑
 ├── README.md           # 项目说明
-└── *.bak               # 备份文件 (原始 BCI 官网)
+└── *.bak               # 原始 BCI 官网备份
 ```
 
-## 🎨 自定义
+## 🔌 扩展建议
 
-### 修改配色方案
-
-在 `style.css` 的 `:root` 部分修改 CSS 变量:
-
-```css
-:root {
-    --primary: #6366f1;      /* 主色调 */
-    --secondary: #8b5cf6;    /* 辅助色 */
-    --accent: #06b6d4;       /* 强调色 */
-    --bg-dark: #0f172a;      /* 背景深色 */
-    --bg-card: #1e293b;      /* 卡片背景 */
-}
-```
-
-### 添加真实数据
-
-修改 `script.js` 中的数据源，或连接真实 API:
+### 添加更多数据源
 
 ```javascript
-// 示例：从 API 获取数据
-async function fetchNews() {
-    const response = await fetch('https://api.example.com/ai-news');
-    const data = await response.json();
-    return data;
+// 示例：添加 Hugging Face 模型
+async function fetchHuggingFaceModels() {
+    const response = await fetch('https://huggingface.co/api/models?sort=trending');
+    return await response.json();
 }
 ```
 
-## 🔌 推荐 API 集成
+### 添加搜索功能
 
-- **arXiv API** - 最新论文
-- **Hugging Face API** - AI 模型和工具
-- **GitHub API** - 开源项目趋势
-- **NewsAPI** - 科技新闻
-- **Reddit API** - r/MachineLearning 热点
+```javascript
+function handleSearch() {
+    const query = document.getElementById('searchInput').value;
+    // 实现跨模块搜索
+}
+```
+
+### 添加分类过滤
+
+```javascript
+function filterByCategory(category) {
+    // 过滤显示指定类别的内容
+}
+```
+
+## 🌐 部署
+
+### GitHub Pages
+
+```bash
+git add .
+git commit -m "Update: 真实数据源 + BCI 专栏"
+git push origin main
+```
+
+访问：https://zzy1233211.github.io/website
 
 ## 📊 性能优化
 
-- ✅ 纯静态页面，加载速度快
-- ✅ 无外部依赖，无需构建
-- ✅ CSS 变量主题系统
-- ✅ 响应式设计，移动端友好
+- ✅ 并行数据获取 (`Promise.all`)
+- ✅ 备用数据 (API 失败时降级)
+- ✅ 懒加载 (按需获取数据)
+- ✅ 缓存策略 (可减少 API 调用)
 
-## 🛣️ 后续改进
+## 🧠 BCI 专栏特色
 
-- [ ] 连接真实 API 获取实时数据
-- [ ] 添加用户登录和收藏功能
-- [ ] 实现 RSS 订阅
-- [ ] 添加夜间/日间模式切换
-- [ ] 支持多语言
-- [ ] 添加评论和分享功能
+为紫钺的脑机接口工作特别设计:
+- 自动追踪 arXiv 最新 BCI 论文
+- 涵盖：运动想象、SSVEP、P300、神经反馈等方向
+- 支持在线自适应、对比学习、黎曼几何等关键词
 
 ## 📄 许可证
 
@@ -117,4 +140,5 @@ MIT License
 
 ---
 
-**AI 前沿** - 探索人工智能的无限可能 🚀
+**AI 前沿** - 探索人工智能的无限可能 🚀  
+**BCI 专栏** - 专注脑机接口前沿研究 🧠

@@ -15,8 +15,9 @@
                 <li><a href="#home">首页</a></li>
                 <li><a href="#news">资讯</a></li>
                 <li><a href="#papers">论文</a></li>
+                <li><a href="#bci">BCI</a></li>
                 <li><a href="#tools">工具</a></li>
-                <li><a href="#about">关于</a></li>
+                <li><a href="#github">开源</a></li>
             </ul>
         </div>
     </nav>
@@ -26,10 +27,10 @@
         <div class="container">
             <h1>探索 AI 的无限可能</h1>
             <p class="subtitle">汇聚全球最新人工智能资讯</p>
-            <p class="description">前沿论文 · 创新工具 · 技术动态 · 行业洞察</p>
+            <p class="description">前沿论文 · 创新工具 · 技术动态 · 开源项目</p>
             <div class="search-box">
-                <input type="text" class="search-input" placeholder="搜索 AI 新闻、论文、工具...">
-                <button class="search-btn">🔍 搜索</button>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索 AI 新闻、论文、工具...">
+                <button class="search-btn" onclick="handleSearch()">🔍 搜索</button>
             </div>
         </div>
     </section>
@@ -44,19 +45,19 @@
                 <span class="category-tag">自然语言处理</span>
                 <span class="category-tag">机器人</span>
                 <span class="category-tag">医疗 AI</span>
-                <span class="category-tag">自动驾驶</span>
+                <span class="category-tag">BCI</span>
                 <span class="category-tag">AI 芯片</span>
-                <span class="category-tag">伦理安全</span>
+                <span class="category-tag">开源项目</span>
             </div>
         </div>
     </section>
 
-    <!-- 最新资讯 -->
+    <!-- 科技资讯 -->
     <section class="content-section" id="news">
         <div class="container">
-            <h2>📰 最新资讯</h2>
+            <h2>📰 科技资讯</h2>
             <div class="news-grid" id="newsGrid">
-                <!-- 由 JavaScript 动态生成 -->
+                <div class="loading">正在加载最新资讯...</div>
             </div>
         </div>
     </section>
@@ -66,21 +67,41 @@
         <div class="container">
             <h2>📄 热门论文</h2>
             <div class="news-grid" id="papersGrid">
-                <!-- 由 JavaScript 动态生成 -->
+                <div class="loading">正在加载论文...</div>
             </div>
         </div>
     </section>
 
-    <!-- 侧边栏布局 -->
+    <!-- BCI 专栏 -->
+    <section class="content-section" id="bci">
+        <div class="container">
+            <h2>🧠 BCI 专栏</h2>
+            <p class="section-intro">脑机接口领域最新研究进展</p>
+            <div class="news-grid" id="bciGrid">
+                <div class="loading">正在加载 BCI 论文...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI 工具 + 开源项目 -->
     <section class="content-section">
         <div class="container">
             <div class="main-sidebar">
                 <div class="main-content">
-                    <h2>🛠️ 推荐工具</h2>
+                    <!-- AI 工具 -->
+                    <h2 id="tools">🛠️ 推荐工具</h2>
                     <div class="news-grid" id="toolsGrid">
-                        <!-- 由 JavaScript 动态生成 -->
+                        <div class="loading">正在加载工具...</div>
+                    </div>
+                    
+                    <!-- 开源项目 -->
+                    <h2 id="github" style="margin-top: 3rem;">💻 热门开源项目</h2>
+                    <div class="news-grid" id="githubGrid">
+                        <div class="loading">正在加载开源项目...</div>
                     </div>
                 </div>
+                
+                <!-- 侧边栏 -->
                 <aside class="sidebar">
                     <div class="sidebar-card">
                         <h3>🔥 24 小时热点</h3>
@@ -90,22 +111,31 @@
                         <h3>📊 今日统计</h3>
                         <div class="stats-grid">
                             <div class="stat-item">
-                                <span class="stat-number">156</span>
+                                <span class="stat-number" id="statNews">-</span>
                                 <span class="stat-label">新文章</span>
                             </div>
                             <div class="stat-item">
-                                <span class="stat-number">23</span>
+                                <span class="stat-number" id="statPapers">-</span>
                                 <span class="stat-label">新论文</span>
                             </div>
                             <div class="stat-item">
-                                <span class="stat-number">12</span>
+                                <span class="stat-number" id="statTools">-</span>
                                 <span class="stat-label">新工具</span>
                             </div>
                             <div class="stat-item">
-                                <span class="stat-number">8</span>
+                                <span class="stat-number" id="statGithub">-</span>
                                 <span class="stat-label">开源项目</span>
                             </div>
                         </div>
+                    </div>
+                    <div class="sidebar-card">
+                        <h3>🔗 快速链接</h3>
+                        <ul class="quick-links">
+                            <li><a href="https://arxiv.org" target="_blank">arXiv 论文</a></li>
+                            <li><a href="https://huggingface.co" target="_blank">Hugging Face</a></li>
+                            <li><a href="https://github.com/trending" target="_blank">GitHub Trending</a></li>
+                            <li><a href="https://news.ycombinator.com" target="_blank">Hacker News</a></li>
+                        </ul>
                     </div>
                 </aside>
             </div>
@@ -131,8 +161,8 @@
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">🔍</div>
-                        <h3>深度筛选</h3>
-                        <p>智能搜索和过滤，高效获取所需信息</p>
+                        <h3>真实链接</h3>
+                        <p>所有卡片均可点击跳转至原始来源</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">📱</div>
@@ -155,10 +185,10 @@
                 <div class="footer-section">
                     <h3>数据来源</h3>
                     <ul class="footer-links">
-                        <li><a href="#">arXiv</a></li>
-                        <li><a href="#">Papers With Code</a></li>
-                        <li><a href="#">Hugging Face</a></li>
-                        <li><a href="#">GitHub Trending</a></li>
+                        <li><a href="https://arxiv.org" target="_blank">arXiv</a></li>
+                        <li><a href="https://huggingface.co" target="_blank">Hugging Face</a></li>
+                        <li><a href="https://github.com" target="_blank">GitHub</a></li>
+                        <li><a href="https://news.ycombinator.com" target="_blank">Hacker News</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -166,8 +196,8 @@
                     <ul class="footer-links">
                         <li><a href="#news">最新资讯</a></li>
                         <li><a href="#papers">学术论文</a></li>
+                        <li><a href="#bci">BCI 专栏</a></li>
                         <li><a href="#tools">AI 工具</a></li>
-                        <li><a href="#">RSS 订阅</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
