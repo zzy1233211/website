@@ -3,115 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>紫钺 | BCI 工程师</title>
+    <title>AI 前沿 - 全球人工智能资讯聚合</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- 导航栏 -->
     <nav class="navbar">
         <div class="container">
-            <div class="logo">紫钺</div>
+            <div class="logo">🧠 AI 前沿</div>
             <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#news">资讯</a></li>
+                <li><a href="#papers">论文</a></li>
+                <li><a href="#tools">工具</a></li>
                 <li><a href="#about">关于</a></li>
-                <li><a href="#projects">项目</a></li>
-                <li><a href="#contact">联系</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- 英雄区域 -->
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="container">
-            <h1>你好，我是紫钺 🧠</h1>
-            <p class="subtitle">脑机接口工程师 @ 芯智达神经技术</p>
-            <p class="description">探索大脑与机器的边界，让思想控制成为现实</p>
+            <h1>探索 AI 的无限可能</h1>
+            <p class="subtitle">汇聚全球最新人工智能资讯</p>
+            <p class="description">前沿论文 · 创新工具 · 技术动态 · 行业洞察</p>
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="搜索 AI 新闻、论文、工具...">
+                <button class="search-btn">🔍 搜索</button>
+            </div>
         </div>
     </section>
 
-    <!-- 关于我 -->
-    <section id="about" class="about">
+    <!-- 分类标签 -->
+    <section class="categories">
         <div class="container">
-            <h2>关于我</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>我是一名脑机接口（BCI）工程师，专注于神经信号解码算法和人机交互技术的研发。</p>
-                    <p>目前就职于北京芯智达神经技术有限公司，致力于将 BCI 技术从实验室推向实际应用。</p>
-                    <div class="skills">
-                        <h3>技术栈</h3>
-                        <div class="skill-tags">
-                            <span>Python</span>
-                            <span>机器学习</span>
-                            <span>信号处理</span>
-                            <span>神经科学</span>
-                            <span>嵌入式系统</span>
+            <div class="category-tags">
+                <span class="category-tag active">全部</span>
+                <span class="category-tag">大模型</span>
+                <span class="category-tag">计算机视觉</span>
+                <span class="category-tag">自然语言处理</span>
+                <span class="category-tag">机器人</span>
+                <span class="category-tag">医疗 AI</span>
+                <span class="category-tag">自动驾驶</span>
+                <span class="category-tag">AI 芯片</span>
+                <span class="category-tag">伦理安全</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最新资讯 -->
+    <section class="content-section" id="news">
+        <div class="container">
+            <h2>📰 最新资讯</h2>
+            <div class="news-grid" id="newsGrid">
+                <!-- 由 JavaScript 动态生成 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 热门论文 -->
+    <section class="content-section" id="papers">
+        <div class="container">
+            <h2>📄 热门论文</h2>
+            <div class="news-grid" id="papersGrid">
+                <!-- 由 JavaScript 动态生成 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 侧边栏布局 -->
+    <section class="content-section">
+        <div class="container">
+            <div class="main-sidebar">
+                <div class="main-content">
+                    <h2>🛠️ 推荐工具</h2>
+                    <div class="news-grid" id="toolsGrid">
+                        <!-- 由 JavaScript 动态生成 -->
+                    </div>
+                </div>
+                <aside class="sidebar">
+                    <div class="sidebar-card">
+                        <h3>🔥 24 小时热点</h3>
+                        <div id="trendingList"></div>
+                    </div>
+                    <div class="sidebar-card">
+                        <h3>📊 今日统计</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-number">156</span>
+                                <span class="stat-label">新文章</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">23</span>
+                                <span class="stat-label">新论文</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">12</span>
+                                <span class="stat-label">新工具</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">8</span>
+                                <span class="stat-label">开源项目</span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </aside>
             </div>
         </div>
     </section>
 
-    <!-- 项目展示 -->
-    <section id="projects" class="projects">
+    <!-- 关于 -->
+    <section class="content-section" id="about">
         <div class="container">
-            <h2>项目展示</h2>
-            <div class="project-grid">
-                <!-- 项目 1 -->
-                <div class="project-card">
-                    <div class="card-icon">🧠</div>
-                    <h3>运动想象解码系统</h3>
-                    <p>基于 EEG 信号的左右手运动想象分类，准确率>85%</p>
-                    <div class="tech-tags">
-                        <span>EEG</span>
-                        <span>Riemann</span>
-                        <span>深度学习</span>
+            <h2>关于本站</h2>
+            <div class="about-content">
+                <p class="intro">AI 前沿致力于汇聚全球最优质的人工智能资讯，为研究者、开发者和爱好者提供一站式信息平台。</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>实时更新</h3>
+                        <p>自动聚合最新 AI 资讯，把握技术脉搏</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>精准分类</h3>
+                        <p>多维度标签体系，快速定位感兴趣的内容</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔍</div>
+                        <h3>深度筛选</h3>
+                        <p>智能搜索和过滤，高效获取所需信息</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3>全端适配</h3>
+                        <p>响应式设计，完美支持各种设备</p>
                     </div>
                 </div>
-
-                <!-- 项目 2 -->
-                <div class="project-card">
-                    <div class="card-icon">🔄</div>
-                    <h3>在线自适应算法</h3>
-                    <p>实时模型更新，适应受试者状态变化，减少校准时间</p>
-                    <div class="tech-tags">
-                        <span>在线学习</span>
-                        <span>迁移学习</span>
-                    </div>
-                </div>
-
-                <!-- 项目 3 -->
-                <div class="project-card">
-                    <div class="card-icon">📊</div>
-                    <h3>实时神经反馈系统</h3>
-                    <p>闭环 BCI 系统，受试者可实时感知解码结果</p>
-                    <div class="tech-tags">
-                        <span>闭环反馈</span>
-                        <span>实时处理</span>
-                    </div>
-                </div>
-
-                <!-- 项目 4 -->
-                <div class="project-card">
-                    <div class="card-icon">🤖</div>
-                    <h3>BCI+AI 融合研究</h3>
-                    <p>探索大语言模型与脑机接口的深度融合方向</p>
-                    <div class="tech-tags">
-                        <span>AI</span>
-                        <span>多模态</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 联系我 -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>联系我</h2>
-            <p>对 BCI 技术感兴趣？欢迎交流！</p>
-            <div class="contact-links">
-                <a href="mailto:your-email@example.com" class="contact-btn">📧 发送邮件</a>
-                <a href="https://github.com/yourusername" class="contact-btn">💻 GitHub</a>
             </div>
         </div>
     </section>
@@ -119,9 +147,47 @@
     <!-- 页脚 -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 紫钺 | Powered by Vercel</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🧠 AI 前沿</h3>
+                    <p>探索人工智能的无限可能</p>
+                </div>
+                <div class="footer-section">
+                    <h3>数据来源</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">arXiv</a></li>
+                        <li><a href="#">Papers With Code</a></li>
+                        <li><a href="#">Hugging Face</a></li>
+                        <li><a href="#">GitHub Trending</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>快速链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="#news">最新资讯</a></li>
+                        <li><a href="#papers">学术论文</a></li>
+                        <li><a href="#tools">AI 工具</a></li>
+                        <li><a href="#">RSS 订阅</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>联系我们</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">关于本站</a></li>
+                        <li><a href="#">投稿指南</a></li>
+                        <li><a href="#">广告合作</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 AI 前沿 | Powered by GitHub Pages</p>
+            </div>
         </div>
     </footer>
+
+    <!-- 刷新按钮 -->
+    <button class="refresh-btn" onclick="refreshContent()" title="刷新内容">🔄</button>
 
     <script src="script.js"></script>
 </body>
